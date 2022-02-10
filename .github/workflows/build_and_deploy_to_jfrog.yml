@@ -24,10 +24,9 @@ jobs:
 
       - name: Gradle Build 
         uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
 
-      - name: Gradle Artifactory Publish 
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: artifactorypublish
+      - name: Execute Gradle build
+        run: ./gradlew build
+
+      - name: Execute Gradle Artifactory publishing .... 
+        run: ./gradlew artifactorypublish
