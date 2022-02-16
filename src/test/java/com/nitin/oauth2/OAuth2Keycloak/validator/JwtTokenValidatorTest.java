@@ -18,7 +18,7 @@ import com.auth0.jwk.Jwk;
 import com.auth0.jwk.JwkException;
 import com.auth0.jwk.JwkProvider;
 import com.google.gson.JsonObject;
-import com.nitin.oauth2.OAuth2Keycloak.exception.InvalidTokenException;
+import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
 import com.nitin.oauth2.OAuth2Keycloak.security.AccessToken;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,7 +42,7 @@ class JwtTokenValidatorTest {
 	private JwkProvider jwkProvider = new KeycloakJwkProvider("http://localhost:8080/");
 
 	@Test 
-	void testValidateAuthorizationHeader_Success_Scenario() throws JwkException {
+	void testValidateAuthorizationHeader_Success_Scenario() throws JwkException, CustomInvalidTokenException {
 		//given 
 		JwtTokenValidator jwtTokenValidator = new JwtTokenValidator(jwkProvider) {
 			boolean hasTokenExpired(JsonObject payloadAsJson) {
@@ -74,7 +74,7 @@ class JwtTokenValidatorTest {
 		when(jwkProvider.get(anyString())).thenReturn(jwk);
 		
 		//then
-		InvalidTokenException invalidTokenException =assertThrows(InvalidTokenException.class,()->{jwtTokenValidator.validateAuthorizationHeader(invalid_Signature_token); });
+		CustomInvalidTokenException invalidTokenException =assertThrows(CustomInvalidTokenException.class,()->{jwtTokenValidator.validateAuthorizationHeader(invalid_Signature_token); });
 		assertEquals("Token has invalid signature", invalidTokenException.getMessage());
 	}
 	
@@ -88,7 +88,7 @@ class JwtTokenValidatorTest {
 		when(jwkProvider.get(anyString())).thenReturn(jwk);
 		
 		//then
-		InvalidTokenException invalidTokenException = assertThrows(InvalidTokenException.class,()->{jwtTokenValidator.validateAuthorizationHeader(token); });
+		CustomInvalidTokenException invalidTokenException = assertThrows(CustomInvalidTokenException.class,()->{jwtTokenValidator.validateAuthorizationHeader(token); });
 		assertEquals("Token has expired", invalidTokenException.getMessage());
 	}
 	

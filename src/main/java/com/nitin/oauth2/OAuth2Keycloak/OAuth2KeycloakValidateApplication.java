@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OAuth2KeycloakApplication {
+public class OAuth2KeycloakValidateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OAuth2KeycloakApplication.class, args);
+		SpringApplication.run(OAuth2KeycloakValidateApplication.class, args);
 	}
 
 }

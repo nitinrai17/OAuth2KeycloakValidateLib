@@ -8,7 +8,8 @@ import java.util.Collection;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.core.GrantedAuthority;
+
+import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
 
 @ExtendWith(MockitoExtension.class)
 class AccessTokenTest {
@@ -18,8 +19,8 @@ class AccessTokenTest {
 	AccessToken accessToken = new AccessToken(token);
 
 	@Test
-	void testGetAuthorities() {
-		Collection<? extends GrantedAuthority> authorities = accessToken.getAuthorities();
+	void testGetAuthorities() throws CustomInvalidTokenException {
+		Collection<?> authorities = accessToken.getAuthorities();
 
 		// then
 		assertNotNull(accessToken.getValueAsString());

@@ -5,12 +5,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
 import com.nitin.oauth2.OAuth2Keycloak.security.utils.SecurityUtils;
 
 
@@ -26,21 +24,21 @@ public class AccessToken {
 		return value;
 	}
 
-	public Collection<? extends GrantedAuthority> getAuthorities() {
+	public Collection<?> getAuthorities() throws CustomInvalidTokenException {
 		JsonObject payloadAsJson = getPayloadAsJsonObject();
 
 		return StreamSupport
 				.stream(payloadAsJson.getAsJsonObject("realm_access").getAsJsonArray("roles").spliterator(), false)
-				.map(JsonElement::getAsString).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+				.map(JsonElement::getAsString).collect(Collectors.toList());
 
 	}
 
-	public String getUsername() {
+	public String getUsername() throws CustomInvalidTokenException {
 		JsonObject payloadAsJson = getPayloadAsJsonObject();
 		return Optional.ofNullable(payloadAsJson.getAsJsonPrimitive("preferred_username").getAsString()).orElse("");
 	}
 
-	private JsonObject getPayloadAsJsonObject() {
+	private JsonObject getPayloadAsJsonObject() throws CustomInvalidTokenException {
 		DecodedJWT decodedJWT = SecurityUtils.decodeToken(value);
 		return SecurityUtils.decodeTokenPayloadToJsonObject(decodedJWT);
 	}

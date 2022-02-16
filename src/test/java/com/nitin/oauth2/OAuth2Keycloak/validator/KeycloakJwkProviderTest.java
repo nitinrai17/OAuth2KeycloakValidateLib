@@ -22,7 +22,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.auth0.jwk.Jwk;
 import com.auth0.jwk.SigningKeyNotFoundException;
-import com.nitin.oauth2.OAuth2Keycloak.exception.InvalidTokenException;
 
 @ExtendWith(MockitoExtension.class)
 class KeycloakJwkProviderTest {
