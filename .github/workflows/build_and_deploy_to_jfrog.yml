@@ -1,4 +1,4 @@
-name: CI build and deploy aws
+name: CI build and deploy jfrog repo
 
 on:
   push:
