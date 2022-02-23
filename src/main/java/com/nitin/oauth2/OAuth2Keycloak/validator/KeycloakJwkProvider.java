@@ -1,9 +1,8 @@
-package com.nitin.oauth2.OAuth2Keycloak.validator;
+package com.nitin.oauth2.oauth2keycloak.validator;
 
 import com.auth0.jwk.Jwk;
 import com.auth0.jwk.JwkException;
 import com.auth0.jwk.JwkProvider;
-import com.auth0.jwk.NetworkException;
 import com.auth0.jwk.SigningKeyNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -81,7 +80,7 @@ public class KeycloakJwkProvider implements JwkProvider {
             return reader.readValue(response.body());
 
         } catch (IOException | InterruptedException e) {
-            throw new NetworkException("Cannot obtain jwks from url " + uri.toString(), e);
+            throw new SigningKeyNotFoundException("Cannot obtain jwks from url " + uri.toString(), e);
         }
     }
 }

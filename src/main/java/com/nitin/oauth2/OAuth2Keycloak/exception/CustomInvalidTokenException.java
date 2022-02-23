@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.exception;
+package com.nitin.oauth2.oauth2keycloak.exception;
 
 public class CustomInvalidTokenException extends Exception {
 

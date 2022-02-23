@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.validator;
+package com.nitin.oauth2.oauth2keycloak.validator;
 
 import java.security.interfaces.RSAPublicKey;
 import java.time.Instant;
@@ -14,9 +14,9 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.common.base.Preconditions;
 import com.google.gson.JsonObject;
-import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
-import com.nitin.oauth2.OAuth2Keycloak.security.AccessToken;
-import com.nitin.oauth2.OAuth2Keycloak.security.utils.SecurityUtils;
+import com.nitin.oauth2.oauth2keycloak.exception.CustomInvalidTokenException;
+import com.nitin.oauth2.oauth2keycloak.security.AccessToken;
+import com.nitin.oauth2.oauth2keycloak.security.utils.SecurityUtils;
 
 public class JwtTokenValidator {
 
@@ -31,7 +31,7 @@ public class JwtTokenValidator {
 	}
 
 	public AccessToken validateAuthorizationHeader(String authorizationHeader) throws CustomInvalidTokenException {
-		log.debug(" authorizationHeader ="+authorizationHeader);
+		log.debug(" authorizationHeader ={}",authorizationHeader);
 		String tokenValue = subStringBearer(authorizationHeader);
 		validateToken(tokenValue);
 		return new AccessToken(tokenValue);

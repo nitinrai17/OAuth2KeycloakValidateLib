@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.validator;
+package com.nitin.oauth2.oauth2keycloak.validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

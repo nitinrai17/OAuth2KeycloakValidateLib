@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.security;
+package com.nitin.oauth2.oauth2keycloak.security;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
+import com.nitin.oauth2.oauth2keycloak.exception.CustomInvalidTokenException;
 
 @ExtendWith(MockitoExtension.class)
 class AccessTokenTest {

@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.validator;
+package com.nitin.oauth2.oauth2keycloak.validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -18,8 +18,8 @@ import com.auth0.jwk.Jwk;
 import com.auth0.jwk.JwkException;
 import com.auth0.jwk.JwkProvider;
 import com.google.gson.JsonObject;
-import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
-import com.nitin.oauth2.OAuth2Keycloak.security.AccessToken;
+import com.nitin.oauth2.oauth2keycloak.exception.CustomInvalidTokenException;
+import com.nitin.oauth2.oauth2keycloak.security.AccessToken;
 
 @ExtendWith(MockitoExtension.class)
 class JwtTokenValidatorTest {

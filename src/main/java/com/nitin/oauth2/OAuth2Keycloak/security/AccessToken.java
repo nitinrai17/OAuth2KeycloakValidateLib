@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.security;
+package com.nitin.oauth2.oauth2keycloak.security;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import java.util.stream.StreamSupport;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
-import com.nitin.oauth2.OAuth2Keycloak.security.utils.SecurityUtils;
+import com.nitin.oauth2.oauth2keycloak.exception.CustomInvalidTokenException;
+import com.nitin.oauth2.oauth2keycloak.security.utils.SecurityUtils;
 
 
 public class AccessToken {

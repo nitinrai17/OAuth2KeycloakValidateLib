@@ -1,4 +1,4 @@
-package com.nitin.oauth2.OAuth2Keycloak.security.utils;
+package com.nitin.oauth2.oauth2keycloak.security.utils;
 
 import static java.util.Objects.isNull;
 
@@ -9,9 +9,12 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.nitin.oauth2.OAuth2Keycloak.exception.CustomInvalidTokenException;
+import com.nitin.oauth2.oauth2keycloak.exception.CustomInvalidTokenException;
 
 public class SecurityUtils {
+	
+	private SecurityUtils() {
+	}
 	
 	
 	public static JsonObject decodeTokenPayloadToJsonObject(DecodedJWT decodedJWT) throws CustomInvalidTokenException {
