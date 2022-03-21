@@ -37,7 +37,7 @@ docker run -d --name sonarqube -p 9000:9000 sonarqube
 ```
 ### Gradle command for SonarQube
 ```
-./gradlew sonarqube -D "sonar.projectKey=OAuth2KeycloakValidateLib" -D "sonar.host.url=http://localhost:9000" -D "sonar.login=38f1d3d98c792da944bc60491dcf4c836455d93e"
+./gradlew clean build sonarqube jacocoTestReport -D "sonar.projectKey=OAuth2KeycloakValidateLib" -D "sonar.host.url=http://localhost:9000" -D "sonar.login=38f1d3d98c792da944bc60491dcf4c836455d93e"
 ```
 
 
